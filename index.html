@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundBuddy - Programmable Soundboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔊 SoundBuddy</h1>
+            <p class="tagline">Your personal programmable soundboard</p>
+        </header>
+
+        <main>
+            <!-- Quick Controls -->
+            <div class="quick-controls">
+                <button id="stop-all" class="control-btn stop">⏹️ Stop All</button>
+                <button id="add-sound" class="control-btn add">➕ Add Sound</button>
+                <div class="volume-control">
+                    <span>🔈</span>
+                    <input type="range" id="master-volume" min="0" max="100" value="80">
+                    <span>🔊</span>
+                </div>
+            </div>
+
+            <!-- Soundboard Grid -->
+            <div class="soundboard" id="soundboard">
+                <!-- Sounds will be added here -->
+            </div>
+
+            <!-- Preset Banks -->
+            <div class="preset-section">
+                <h2>Quick Presets</h2>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-preset="reactions">😂 Reactions</button>
+                    <button class="preset-btn" data-preset="gaming">🎮 Gaming</button>
+                    <button class="preset-btn" data-preset="podcast">🎙️ Podcast</button>
+                    <button class="preset-btn" data-preset="stream">📺 Stream</button>
+                    <button class="preset-btn" data-preset="nature">🌿 Nature</button>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions">
+                <p>💡 <strong>Tips:</strong> Click to play • Long-press to edit • Drag to rearrange • Use keyboard shortcuts (1-9, A-Z)</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Press any key to trigger assigned sounds!</p>
+        </footer>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Add Sound</h2>
+            <form id="sound-form">
+                <div class="form-group">
+                    <label for="sound-name">Name:</label>
+                    <input type="text" id="sound-name" required placeholder="Enter sound name">
+                </div>
+                <div class="form-group">
+                    <label for="sound-emoji">Emoji:</label>
+                    <input type="text" id="sound-emoji" maxlength="2" placeholder="🔊">
+                </div>
+                <div class="form-group">
+                    <label for="sound-color">Color:</label>
+                    <input type="color" id="sound-color" value="#667eea">
+                </div>
+                <div class="form-group">
+                    <label for="sound-type">Sound Type:</label>
+                    <select id="sound-type">
+                        <option value="synth">Synthesized</option>
+                        <option value="tts">Text-to-Speech</option>
+                        <option value="url">URL/File</option>
+                        <option value="record">Record</option>
+                    </select>
+                </div>
+                <div class="form-group synth-options">
+                    <label for="synth-type">Synth Sound:</label>
+                    <select id="synth-type">
+                        <option value="ding">Ding</option>
+                        <option value="bloop">Bloop</option>
+                        <option value="buzzer">Buzzer</option>
+                        <option value="whoosh">Whoosh</option>
+                        <option value="tada">Tada</option>
+                        <option value="error">Error</option>
+                        <option value="pop">Pop</option>
+                        <option value="coin">Coin</option>
+                        <option value="laser">Laser</option>
+                        <option value="drum">Drum Hit</option>
+                    </select>
+                </div>
+                <div class="form-group tts-options" style="display:none;">
+                    <label for="tts-text">Text to speak:</label>
+                    <input type="text" id="tts-text" placeholder="Enter text to speak">
+                </div>
+                <div class="form-group url-options" style="display:none;">
+                    <label for="sound-url">Sound URL:</label>
+                    <input type="url" id="sound-url" placeholder="https://example.com/sound.mp3">
+                </div>
+                <div class="form-group record-options" style="display:none;">
+                    <button type="button" id="record-btn" class="record-btn">🎤 Start Recording</button>
+                    <span id="record-status"></span>
+                </div>
+                <div class="form-group">
+                    <label for="sound-hotkey">Hotkey (optional):</label>
+                    <input type="text" id="sound-hotkey" maxlength="1" placeholder="Press a key">
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" id="delete-sound" class="delete-btn" style="display:none;">🗑️ Delete</button>
+                    <button type="button" id="cancel-edit" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="synth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
