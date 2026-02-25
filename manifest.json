@@ -1,0 +1,21 @@
+{
+  "name": "SoundBuddy",
+  "short_name": "SoundBuddy",
+  "description": "Programmable soundboard for quick audio playback with built-in synthesizer",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1a1a2e",
+  "theme_color": "#4ecdc4",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["utilities", "music"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
